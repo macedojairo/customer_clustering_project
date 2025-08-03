@@ -84,7 +84,7 @@ O dataset original [`Mall_Customers.csv`](Data/raw/Mall_Customers.csv) contém o
 
 Com o pipeline completo (pré-processamento + PCA + KMeans), foram identificados **5 clusters** com perfis distintos:
 
-![Pairplot](Reports/Images/clusters_visualizacao.png)
+![Pairplot](Reports/Images/pairplot_clusters.png)
 ![Boxplot por Gênero](Reports/Images/clusters_visualizacao_gender.png)
 
 | Cluster | Pontuação de Gastos | Renda    | Idade    |
