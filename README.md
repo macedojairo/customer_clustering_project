@@ -7,7 +7,7 @@ Este projeto aplica técnicas de aprendizado não supervisionado para segmentar 
 
 O objetivo é identificar diferentes perfis de consumidores, oferecendo subsídios para estratégias de marketing mais personalizadas e eficientes.
 
-![Visualização PCA 3D](Images/clusters_visualizacao.png)
+![Visualização PCA 3D](Reports/Images/clusters_visualizacao.png)
 
 > 📂 [Link para o dataset no Kaggle](https://www.kaggle.com/vjchoudhary7/customer-segmentation-tutorial-in-python)
 
@@ -84,8 +84,8 @@ O dataset original [`Mall_Customers.csv`](Data/raw/Mall_Customers.csv) contém o
 
 Com o pipeline completo (pré-processamento + PCA + KMeans), foram identificados **5 clusters** com perfis distintos:
 
-![Pairplot](Images/clusters-visualizacao.png)
-![Boxplot por Gênero](Images/clusters_visualizacao_gender.png)
+![Pairplot](Reports/Images/clusters-visualizacao.png)
+![Boxplot por Gênero](Reports/Images/clusters_visualizacao_gender.png)
 
 | Cluster | Pontuação de Gastos | Renda    | Idade    |
 |---------|---------------------|----------|----------|
