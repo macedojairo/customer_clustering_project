@@ -1,68 +1,24 @@
+# 🛍️ Segmentação de Clientes de um Supermercado
 
-- **Data/**: contém o dataset original `Mall_Customers.csv` e demais arquivos gerados.
-- **Reports/Images/**: imagens utilizadas no README e nos notebooks.
-- **Models/**: pipelines e modelos salvos (.pkl).
-- **Scripts/**: notebooks e scripts do projeto:
-  - `code_0_initial_exploration.ipynb`: exploração inicial com histogramas e limpeza.
-  - `code_1_no_pipeline_clustering.ipynb`: clusterização sem pré-processamento (didático).
-  - `code_2_final_analysis.ipynb`: clusterização com pipeline + PCA.
-  - `functions.py`: funções auxiliares reutilizadas nos notebooks.
-  - `config.py`: arquivos de configuração com caminhos e constantes globais.
-- **Reports/**: relatórios gerados com [ydata-profiling](https://github.com/ydataai/ydata-profiling).
+A partir de dados coletados via cartões de fidelidade, um supermercado obteve informações básicas sobre seus clientes — como idade, gênero, renda anual e uma pontuação de gastos atribuída com base no comportamento de compra. Com o intuito de entender melhor o perfil dos consumidores e embasar estratégias de marketing e fidelização, a empresa contratou um cientista de dados para realizar uma análise de segmentação.
+
+Por meio de técnicas de aprendizado não supervisionado, o projeto identifica grupos de clientes com características semelhantes, oferecendo insights valiosos para personalização de campanhas, otimização de ofertas e aumento da retenção.
 
 ---
 
-## 🧾 Dataset Utilizado
+## 🎯 Objetivos
 
-O arquivo [`Mall_Customers.csv`](Data/raw/Mall_Customers.csv) contém os seguintes campos:
+Este projeto foi desenvolvido com fins educacionais para demonstrar, na prática, como segmentar clientes com base em variáveis comportamentais e demográficas. Em um contexto real, a segmentação possibilita decisões mais eficientes e orientadas por dados.
 
-- `CustomerID`: identificador do cliente
-- `Gender`: gênero
-- `Age`: idade
-- `Annual Income (k$)`: renda anual
-- `Spending Score (1–100)`: pontuação de gastos (comportamento)
+Durante o projeto, são abordados conceitos fundamentais como:
 
----
+- A importância do pré-processamento dos dados para garantir resultados mais robustos.
+- O papel da análise exploratória (EDA) na compreensão inicial do dataset.
+- A aplicação do algoritmo **K-Means** para agrupar clientes com perfis similares.
 
-## 📊 Resultados da Segmentação
+### Objetivos específicos:
 
-Após aplicar o pipeline com pré-processamento, PCA e K-Means, foram identificados 5 clusters distintos:
-
-![pairplot](Images/clusters-visualizacao.png)
-![boxplot](Images/clusters_visualizacao_gender.png)
-
-| Cluster | Pontuação de Gastos | Renda    | Idade    |
-| ------- | ------------------- | -------- | -------- |
-| 0       | Moderada            | Moderada | Alta     |
-| 1       | Moderada            | Moderada | Jovem    |
-| 2       | Baixa               | Alta     | Moderada |
-| 3       | Alta                | Baixa    | Jovem    |
-| 4       | Alta                | Alta     | Jovem    |
-
----
-
-## ▶️ Como Reproduzir o Projeto
-
-O projeto foi desenvolvido em Python 3.11.4. Para reproduzi-lo:
-
-1. Crie um ambiente virtual com Conda ou `venv`.
-2. Instale as bibliotecas a seguir:
-
-| Biblioteca       | Versão |
-|------------------|--------|
-| matplotlib       | 3.7.1  |
-| numpy            | 1.24.3 |
-| pandas           | 1.5.3  |
-| scikit-learn     | 1.3.0  |
-| seaborn          | 0.12.2 |
-| ydata-profiling  | —      |
-| ipympl (opcional)| —      |
-
-> `ydata-profiling` é usada para gerar relatórios automáticos de EDA.  
-> `ipympl` permite visualizações interativas em 3D nos notebooks.
-
----
-
-Se quiser, posso gerar também o `requirements.txt` completo ou configurar um ambiente `conda.yml`. Deseja?
-
-
+- Comparar os resultados da clusterização com e sem pré-processamento, destacando sua relevância.
+- Apresentar uma estrutura completa de projeto de Ciência de Dados: notebooks organizados, scripts reutilizáveis, relatórios automatizados e versionamento no GitHub.
+- Demonstrar boas práticas de programação em Python, com uso de funções modulares e organização do código.
+- Aplicar conceitos essenciais do **Scikit-Learn**, como a criação de pipelines e integração de etapas em um fluxo replicável e eficiente.
