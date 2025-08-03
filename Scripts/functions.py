@@ -97,6 +97,10 @@ def graficos_elbow_silhouette(
 
 
 ###################################
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+from mpl_toolkits.mplot3d import Axes3D
+
 def visualizar_clusters(
     dataframe,
     colunas,
@@ -105,6 +109,7 @@ def visualizar_clusters(
     mostrar_centroids=True,
     mostrar_pontos=False,
     coluna_clusters=None,
+    salvar_em=None  # <- novo argumento opcional
 ):
     """Gerar gráfico 3D com os clusters.
 
@@ -125,10 +130,11 @@ def visualizar_clusters(
     coluna_clusters : List[int], opcional
         Coluna com os números dos clusters para colorir os pontos
         (caso mostrar_pontos seja True), por padrão None
+    salvar_em : str, opcional
+        Caminho para salvar o gráfico, por exemplo: "../Reports/Images/fig.png"
     """
 
     fig = plt.figure()
-
     ax = fig.add_subplot(111, projection="3d")
 
     cores = plt.cm.tab10.colors[:quantidade_cores]
@@ -138,11 +144,8 @@ def visualizar_clusters(
     y = dataframe[colunas[1]]
     z = dataframe[colunas[2]]
 
-    ligar_centroids = mostrar_centroids
-    ligar_pontos = mostrar_pontos
-
     for i, centroid in enumerate(centroids):
-        if ligar_centroids:
+        if mostrar_centroids:
             ax.scatter(*centroid, s=500, alpha=0.5)
             ax.text(
                 *centroid,
@@ -152,13 +155,18 @@ def visualizar_clusters(
                 verticalalignment="center",
             )
 
-        if ligar_pontos:
-            s = ax.scatter(x, y, z, c=coluna_clusters, cmap=cores)
-            ax.legend(*s.legend_elements(), bbox_to_anchor=(1.3, 1))
+    if mostrar_pontos:
+        s = ax.scatter(x, y, z, c=coluna_clusters, cmap=cores)
+        ax.legend(*s.legend_elements(), bbox_to_anchor=(1.3, 1))
 
     ax.set_xlabel(colunas[0])
     ax.set_ylabel(colunas[1])
     ax.set_zlabel(colunas[2])
     ax.set_title("Clusters")
 
+    # Salva se o caminho for fornecido
+    if salvar_em:
+        plt.savefig(salvar_em, dpi=300, bbox_inches="tight")
+    
     plt.show()
+
